@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <ul>
+      <% for(let i = 0; i < messages.length; i++) { %>
+      <p>Text: <%= messages[i].text %></p>
+      <p>User: <%= messages[i].user %></p>
+      <p>Added: <%= messages[i].added %></p>
+      <a href="/message/<%= messages[i].id %>">more</a>
+      <% } %>
+    </ul>
+  
+    <a href="/new">Chat!</a>
+  </body>
+</html>   
