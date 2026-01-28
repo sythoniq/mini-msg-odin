@@ -2,9 +2,5 @@
   "devDependencies": {
     "ejs": "^4.0.1",
     "express": "^5.2.1"
-  },
-  "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
-    "dotenv": "^17.2.3"
   }
 }
