@@ -1,24 +1,8 @@
 const { Router } = require("express");
 const index = Router();
+const controller = require("../controllers/rootController")
 
-const messages = [
-  {
-    text: "Hi there",
-    user: "Amando",
-    added: new Date(),
-    id: 1,
-  },
-  {
-    text: "Hello world!",
-    user: "Charles",
-    added: new Date(),
-    id: 2,
-  }
-]
-
-index.get("/", (req, res) => {
-  res.render("index", { title: "Mini msg board", messages: messages})
-})
+index.get("/", controller.geteessages);
 
 index.get("/new", (req, res) => {
   res.render("form", {title: "New message"});
