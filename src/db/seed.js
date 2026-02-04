@@ -1,5 +1,8 @@
 require('dotenv').config();
-const { Client } = require("pg");
+const dns = require("dns");
+dns.setDefaultResultOrder("ipv4first");
+const pg = require("pg")
+const { Client } = pg;
 
 const SQL = `
 CREATE TABLE messages (
@@ -17,13 +20,15 @@ VALUES
 
 async function main() {
   const client = new Client({
-    connectionString: process.env.DB_CONNECTION_STRING
+    connectionString: process.env.DB_STRING,
   })
 
-  await client.connect();
-  await client.query(SQL);
-  await client.end();
-  console.log("done");
+  try {
+    await client.connect();
+    console.log("success");
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 main();
