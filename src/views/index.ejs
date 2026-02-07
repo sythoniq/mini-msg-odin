@@ -2,9 +2,9 @@
   <body>
     <ul>
       <% for(let i = 0; i < messages.length; i++) { %>
-      <p>Text: <%= messages[i].text %></p>
-      <p>User: <%= messages[i].user %></p>
-      <p>Added: <%= messages[i].added %></p>
+      <p>Text: <%= messages[i].message %></p>
+      <p>User: <%= messages[i].username %></p>
+      <p>Added: <%= messages[i].dateadded %></p>
       <a href="/message/<%= messages[i].id %>">more</a>
       <% } %>
     </ul>

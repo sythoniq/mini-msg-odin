@@ -1,6 +1,4 @@
 require('dotenv').config();
-const dns = require("dns");
-dns.setDefaultResultOrder("ipv4first");
 const pg = require("pg")
 const { Client } = pg;
 
@@ -14,20 +12,22 @@ CREATE TABLE messages (
 
 INSERT INTO messages (username, message, dateadded) 
 VALUES 
-      ("Amando", "Hit there", GETDATE()),
-      ("Hello world!", "Charles", GATEDATE());
+      ('Amanda', 'Hi there!', now()),
+      ('Charles', 'Hello World!', now());
 `;
 
 async function main() {
   const client = new Client({
     connectionString: process.env.DB_STRING,
+    ssl: true
   })
-
+  
   try {
     await client.connect();
-    console.log("success");
-  } catch(err) {
-    console.log(err);
+    await client.query(SQL);
+    await client.end();
+  } catch (err) {
+    console.log("Got us an error", err.message);
   }
 }
 
