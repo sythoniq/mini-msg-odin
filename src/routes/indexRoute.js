@@ -14,10 +14,6 @@ index.post("/new", (req, res) => {
   res.redirect("/");
 })
 
-index.get("/message/:id", (req, res) => {
-  const message = messages.find((message) => message.id == req.params.id);
-  console.log(req.params.id, messages);
-  res.render("detail", {title: "Message Detail", message: message});
-})
+index.get("/message/:id", controller.getMessage); 
 
 module.exports = index;

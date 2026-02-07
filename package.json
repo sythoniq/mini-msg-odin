@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node --no-network-family-autoselection src/index.js"
+    "start": "node --watch --no-network-family-autoselection src/index.js"
   },
   "devDependencies": {
     "dotenv": "^17.2.3",
