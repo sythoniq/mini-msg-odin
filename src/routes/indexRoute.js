@@ -4,15 +4,9 @@ const controller = require("../controllers/rootController")
 
 index.get("/", controller.getMessages)
 
-index.get("/new", (req, res) => {
-  res.render("form", {title: "New message"});
-})
+index.get("/new", controller.getMessageForm);
 
-index.post("/new", (req, res) => {
-  const msg = req.body;
-  messages.push({ text: msg.textContent, user: msg.userName, added: new Date(), id: messages.length + 1 });
-  res.redirect("/");
-})
+index.post("/new", controller.userMessagePost);
 
 index.get("/message/:id", controller.getMessage); 
 
