@@ -1,9 +1,15 @@
+<!DOCTYPE html>
 <html>
-<body>
-<p>Text: <%= message.message %></p>
-<p>User: <%= message.username %></p>
-<p>Added: <%= message.dateadded %></p>
+  <head>
+    <link rel="stylesheet" href="/detail.css">
+  </head>
+  <body>
+    <div class="message">
+      <p>Text: <%= message.message %></p>
+      <p>User: <%= message.username %></p>
+      <p>Added: <%= message.dateadded.split(" ")[0] %></p>
+    </div>
 
-<a href="/">Return</a>
-</body>
+    <a href="/">Return</a>
+  </body>
 </html>

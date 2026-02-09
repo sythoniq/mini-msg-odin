@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-<body> 
-<form method="POST" action="/new">
-<h4>Send a message</h4>
-<label for="user-detail">
-<input type="text" id="userName" name="userName" placeholder="Username" />
-</label>
-<label for="text-content">
-<input type="text" id="textContent" name="textContent" placeholder="Hello World" />
-</label>
-<button type="submit">Send</button>
-</form>
-</body>
+  <head>
+    <link rel="stylesheet" href="/form.css">
+    <title><%= title %></title>
+  </head>
+  <body> 
+    <%- include("partials/errors.ejs") %>
+    <form method="POST" action="/new" class="new-form">
+      <h4>Send a message</h4>
+      <label for="user-detail"></label>
+      <input type="text" id="userName" name="userName" placeholder="Username" />
+      <label for="text-content"></label>
+      <input type="text" id="textContent" name="textContent" placeholder="Hello World" />
+      <button type="submit">Send</button>
+    </form>
+  </body>
 </html>

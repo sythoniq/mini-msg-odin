@@ -1,9 +1,11 @@
 const db = require("../db/queries.js")
-const { body, validationResult } = require("express-validator");
+const { body, validationResult, matchedData } = require("express-validator");
 
 const validateMessage = [
-  body("user-name").notEmpty().escape(),
-  body("text-content").notEmpty().escape(),
+  body("userName").trim()
+    .isAlpha().isLength({min: 2, max: 25}).withMessage("Username should not be empty").trim(),
+  body("textContent").trim()
+    .isAlpha().isLength({min: 10, max:200}).withMessage("Message shouldn't be empty").escape(),
 ]
 
 async function getMessages(req, res) {
@@ -30,24 +32,29 @@ const userMessagePost = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.status(400).render("form", {
-        title: "New message",
-        errors: result.array(),
-      })
+      return res.status(400).render("form",
+        {
+          title: "Input Error",
+          errors: result.array()
+        }
+      )
     }
-    try {
-      const {userName, textContent} = matchedData(req);
-      await db.addMessage(userName, textContent);
-      res.redirect('/');
-    } catch (err) {
-      console.log("Error", err.message);
-    }
+
+    const { userName, textContent } = matchedData(req);
+    await db.addMessage(userName, textContent);
+    res.redirect("/");
   }
 ]
+
+async function userMessageDelete(req, res) {
+  await db.deleteMessage(req.params.id);
+  res.redirect("/");
+}
 
 module.exports = {
   getMessages,
   getMessage,
   getMessageForm,
-  userMessagePost
+  userMessagePost,
+  userMessageDelete
 }

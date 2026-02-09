@@ -1,0 +1,36 @@
+body {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.2em;
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .2em;
+  padding: .5em;
+  border-radius: 12px;
+  border: .5px solid black;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
+  font-size: 1.2em;
+}
+
+a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: .2em;
+  font-family: monospace;
+  color: black;
+  border-radius: 12px;
+}
+
+a:hover {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}

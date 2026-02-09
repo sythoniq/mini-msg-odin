@@ -10,4 +10,6 @@ index.post("/new", controller.userMessagePost);
 
 index.get("/message/:id", controller.getMessage); 
 
+index.get("/delete/:id", controller.userMessageDelete);
+
 module.exports = index;
