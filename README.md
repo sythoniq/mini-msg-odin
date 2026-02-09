@@ -21,6 +21,6 @@ three concpets and the basics of how express actually works under the hood.
  had to work through this time around, also logs are really useful.
 But for now I can say I am done with this one.
 
-Guess you can visit the page [here](https://dashboard.render.com/web/srv-d60mt1fpm1nc73csa2p0)
+Guess you can visit the page [here](https://mini-msg-odin.onrender.com/)
 
 Thats all o7
