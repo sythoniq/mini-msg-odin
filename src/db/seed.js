@@ -18,8 +18,7 @@ VALUES
 
 async function main() {
   const client = new Client({
-    connectionString: process.env.DB_STRING,
-    ssl: true
+    connectionString: process.env.DB_STRING
   })
   
   try {
